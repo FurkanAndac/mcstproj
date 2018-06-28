@@ -1,3 +1,25 @@
 page-home {
-
+	.header-main {
+		background-color: $black !important;
+	}
+	.toolbar-ios {
+		ion-title {
+			left: 50%;
+			display: block;
+			margin: 0 auto;
+			@include calc('max-width', '100% - 90px');
+			width: auto;
+			@include transform(translateX(-50%));
+			p {
+				margin: 12px 0;
+			}
+		}
+	}
+	.header-btn{
+		margin-left: -35px !important;
+		color: #FFF !important;
+	}
+	.color-txt{
+		color: #FFF !important;
+	}
 }

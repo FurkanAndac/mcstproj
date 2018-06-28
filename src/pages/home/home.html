@@ -1,14 +1,175 @@
-<ion-header>
-  <ion-navbar>
+<!-- <ion-header class="header-main">
+  <ion-navbar color="dark">
     <ion-title>
-      Ionic Blank
+    {{userData.email}}
     </ion-title>
+    <ion-buttons>
+	    <button ion-button clear (click)="logout()">
+	      	<ion-icon name="md-exit"></ion-icon>
+	    </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-header class="header-main">
+  <ion-navbar >
+    <ion-title >
+    <p class="color-txt">{{userData.email}}</p>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only class="header-btn" (click)="logout()">
+        <ion-icon name="md-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class = "content" padding>
+
+<div class = "container-top">
+  <form [formGroup]="authForm" (ngSubmit)="AdminNewCard(newcardData)">
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" stacked>dag en datum</ion-label>
+        <ion-input [(ngModel)]="newcardData.dayndate" [formControl]="dayndate" id="dayndate" type="text" placeholder="dag + datum"> ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" stacked></ion-label>
+        <ion-input [(ngModel)]="newcardData.description" [formControl]="description" id="description" type="text" placeholder="omschrijving"> ></ion-input>
+      </ion-item>
+      <button type="submit" ion-button full color="orange">add</button>
+    </ion-list>
+  </form>
+</div>
+
+  <h2></h2><ion-card>
+
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="assets/imgs/_bg.jpg">
+    </ion-avatar>
+      <ion-label>TestCard</ion-label>
+    <ion-checkbox [(ngModel)]="jengiz" item-right>TestCard</ion-checkbox>
+  </ion-item>
+  <ion-item>
+  <ion-label>Zaterdag 23-06-18</ion-label>
+  <ion-checkbox [(ngModel)]="jengiz"></ion-checkbox>
+</ion-item>
+
+  <!-- <img src="assets/imgs/cam.jpg"> -->
+
+  <ion-card-content>
+    <p> jumbo Hulst 17:00 tot 23:00. // 12 werknemers nodig // (yahya)</p>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <ion-note>
+        11h ago
+      </ion-note>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
+
+
+<ion-card>
+
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="assets/imgs/_bg.jpg">
+    </ion-avatar>
+    <h2>TestCard2</h2>
+    <p>22-06-18</p>
+  </ion-item>
+  <ion-item>
+  <ion-label>Zondag 24-06-18</ion-label>
+  <ion-checkbox [(ngModel)]="loling"></ion-checkbox>
+</ion-item>
+
+  <!-- <img src="assets/imgs/glasses.jpg"> -->
+
+  <ion-card-content>
+    <p> jumbo tellen 18:00 tot 23:00. // 8 werknemers nodig // (weer yahya)</p>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+        <ion-icon name='thumbs-up'></ion-icon>
+        30 Likes
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+        <ion-icon name='text'></ion-icon>
+        64 Comments
+      </button>
+    </ion-col>
+    <ion-col align-self-center text-center>
+      <ion-note>
+        5hr ago
+      </ion-note>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
+
+
+<ion-card>
+
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="assets/imgs/_bg.jpg">
+    </ion-avatar>
+    <h2>TestCard3</h2>
+    <p>22-06-18</p>
+  </ion-item>
+  <ion-item>
+  <ion-label>Maandag 25-06-18</ion-label>
+  <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+</ion-item>
+
+  <!-- <img src="assets/imgs/guitar.jpg"> -->
+
+  <ion-card-content>
+    <p> bouwmaat Nieuwegein 6:00 tot 15:30. // 4 werknemers nodig //</p>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+        <ion-icon name='thumbs-up'></ion-icon>
+        46 Likes
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+        <ion-icon name='text'></ion-icon>
+        66 Comments
+      </button>
+    </ion-col>
+    <ion-col align-self-center text-center>
+      <ion-note>
+        2d ago
+      </ion-note>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
+
+
+
 </ion-content>
