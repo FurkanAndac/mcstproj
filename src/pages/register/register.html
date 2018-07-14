@@ -1,0 +1,63 @@
+
+
+<ion-content class="bg-img">
+  <div class="main-content">
+    <div padding text-center class="container-logo">
+      <!-- <img src="assets/imgs/logo.png"> -->
+    </div>
+
+    <div padding  style="width: 100%;">
+    <form [formGroup]="authForm">
+      <div class="errormsg">
+        <div *ngIf="username.errors && username.touched">
+          <p>Username is required.</p>
+        </div>
+        <div class="error-box" *ngIf="email.errors && email.touched">
+          <p>Email is required.</p>
+        </div>
+        <div *ngIf="password.errors && password.touched">
+          <p>Password is required.</p>
+        </div>
+        <div *ngIf="cnfpass.errors && cnfpass.touched">
+          <p>Confirm password is required.</p>
+        </div>
+      </div>
+      <ion-list>
+        <ion-item padding-right>
+          <ion-label><ion-icon ios="ios-person" md="md-person"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="regData.name" [formControl]="username" id="username" type="text" required placeholder="Username *"></ion-input>
+        </ion-item>
+
+         <ion-item>
+          <ion-label><ion-icon ios="ios-mail" md="md-mail"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="regData.mail" [formControl]="email" id="email" type="email" required placeholder="Email *"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label><ion-icon ios="ios-unlock" md="md-unlock"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="regData.pass" [formControl]="password" id="password" type="{{passwordtype}}" required placeholder="Password *"></ion-input>
+          <button ion-button clear class="eye-icon-btn" type="button" item-right (click)="managePassword()"><ion-icon name="{{passeye}}"></ion-icon></button>
+        </ion-item>
+
+        <ion-item>
+          <ion-label><ion-icon ios="ios-unlock" md="md-unlock"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="regData.cnfpass" [formControl]="cnfpass" id="cnfpass" type="{{cnfpasswordtype}}" required placeholder="Confirm Password *"></ion-input>
+          <button ion-button clear class="eye-icon-btn" type="button" item-right (click)="managecnfPassword()"><ion-icon name="{{cnfpasseye}}"></ion-icon></button>
+        </ion-item>
+      </ion-list>
+      <button ion-button full color="dark" [disabled]="!authForm.valid" (click)="doRegister(regData)">Sign up</button>
+    </form>
+    <div class="sepretor-or" padding-horizontal> <p>Or</p></div>
+    <div padding text-center class="form-bottom-text">
+        <label>Sign up with </label>
+        </div>
+    <div text-center class="socialLogin" padding>
+      <button ion-button class="google" (click)="socialLogin('google')"><ion-icon name="logo-google" style="margin-right: 12px;"></ion-icon>Google</button>
+      <button ion-button class="facebook" (click)="socialLogin('facebook')"><ion-icon name="logo-facebook" style="margin-right: 12px;"></ion-icon> Facebook</button>
+    </div>
+    <div padding text-center class="form-bottom-text">
+      <label> Already have an Account? <a href="javascript:void(0);" (click)="moveToLogin()"> Sign In </a> </label>
+    </div>
+  </div>
+  </div>
+</ion-content>

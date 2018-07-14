@@ -1,0 +1,37 @@
+/**
+ * Fonts SCSS
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,700,700i');
+
+
+
+/* Fonts Variable */
+$times-new-roman-regular: 'Times New Roman Regular';
+$times-new-roman-bold: 'Times New Roman Bold';
+$times-new-roman-bold-italic: 'Times New Roman Bold Italic';
+
+/* URLs */
+$url-times-new-roman-regular: url('../assets/fonts/times-regular.woff');
+$url-times-new-roman-bold: url('../assets/fonts/times-bold.woff');
+$url-times-new-roman-bold-italic: url('../assets/fonts/times-bold-italic.woff');
+
+
+@font-face {
+  font-family: $times-new-roman-regular;
+  src: $url-times-new-roman-regular;
+}
+@font-face {
+  font-family: $times-new-roman-bold;
+  src: $url-times-new-roman-bold;
+}
+@font-face {
+  font-family: $times-new-roman-bold-italic;
+  src: $url-times-new-roman-bold-italic;
+}
+
+body {
+  ion-app.app-root {
+    font-family: 'Montserrat', sans-serif;
+  }
+}

@@ -1,0 +1,157 @@
+/*
+ * Component SCSS
+ */
+
+.flex {
+  @include flexbox();
+}
+.inline-flex {
+  @include inline-flex;
+}
+.flex-wrap {
+  @include flex-wrap(wrap);
+}
+.flex-end {
+  @include align-self(flex-end);
+}
+.align-content-center {
+  @include align-items(center);
+}
+.justify-content-center {
+  @include justify-content(center);
+}
+.page-title {
+  font-size: 30px;
+}
+
+/* Height width components */
+.height-100 {
+  min-height: 100%;
+}
+.wide-wrap {
+  margin-right: -16px;
+  margin-left: -16px;
+  @include calc('width', '100% + 32px');
+}
+
+.bg-img {
+  background-image: url(../assets/imgs/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.border-bottom-grey {
+  border-bottom: 1px solid rgba($black, .2);
+}
+
+.round-img {
+  img {
+    width: 100px;
+    height: 100px;
+    @include border-radius(100%);
+  }
+}
+
+/* Fix banner wrap design */
+.fix-banner-wrap {
+  &.content {
+    background-color: $black;
+    color: $white;
+  }
+  .top-content {
+    height: 100px;
+    * {
+      display: inline-block;
+      width: 100%;
+    }
+    h2,
+    p,
+    h3 {
+      margin: 0;
+    }
+    h2 {
+      font-size: 25px;
+      text-transform: uppercase;
+    }
+    p {
+      font-size: 12px;
+    }
+    h3 {
+      margin-top: 8px;
+      font-size: 16px;
+    }
+    .banner-link-text {
+      color: #519A3E;
+      font-size: 16px;
+      line-height: 25px;
+      text-decoration: underline;
+      -webkit-text-underline-position: under;
+          -ms-text-underline-position: below;
+              text-underline-position: under; 
+    }
+  }
+  .scroll-content {
+    overflow: hidden;
+  }
+  .main-content {
+    display: inline-block;
+    @include calc('height' , '100vh - 144px');
+    width: 100%;
+    background-color: $grey;
+    overflow: auto;
+    &.has-bottom-tab {
+      @include calc('height' , '100vh - 185px');
+    }
+    .item.item-block {
+      border-bottom: none;
+      .item-inner {
+        border-bottom: none;
+      }
+    }
+  }
+}
+/* End */
+
+/* Tab design */
+.tabbar {
+  .tab-button {
+    background-color: $black-3;
+    border-left: 1px solid $black;
+    border-right: 1px solid $black;
+    color: $white;
+    .tab-button-text {
+      color: $white;
+      font-size: 16px;
+      font-family: $times-new-roman-bold;
+    }
+  }
+  .tab-button[aria-selected=true] {
+    background-color: $green;
+    border-color: transparent;
+  }
+}
+/* End */
+
+/* List design */
+.list {
+  padding: 5px 0;
+  span {
+    padding: 0 5px;
+    border-right: 1px solid rgba($black-3, .3);
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+/* End */
+
+video {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid $grey;
+  @include box-shadow(inset 0 0 5px rgba($black, .6));
+}
+audio {
+  width: 100%;
+}

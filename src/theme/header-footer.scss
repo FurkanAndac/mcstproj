@@ -1,0 +1,81 @@
+/*
+ * Header and Footer SCSS
+ */
+
+.toolbar {
+  .toolbar-background {
+    background-color: transparent;
+  }
+}
+.header {
+  &::after {
+    display: none;
+  }
+  .bar-button {
+    // position: absolute;
+    margin: 0;
+  }
+  .toolbar-ios {
+    ion-title {
+      padding: 0;
+    }
+  }
+}
+.ion-page {
+  .toolbar {
+    .toolbar-background {
+      background-color: transparent;
+      border: none;
+    }
+  }
+  .header {
+    &::after {
+      display: none;
+    }
+  }
+}
+.brand-img {
+  text-align: center;
+  img {
+    max-width: 150px;
+  }
+}
+
+/* Siide menu design */
+.app-root {
+  ion-menu {
+    .menu-inner,
+    .content {
+      background-color: $black;
+    }
+  }
+  side-menu-content {
+    ion-list {
+      padding: 0;
+    }
+    ion-item {
+      &.item {
+        &.item-block {
+          border-bottom: 1px solid $white;
+          &.option,
+          &.header,
+          &.sub-option {
+            background-color: transparent;
+            color: $white;
+            font-size: 20px;
+            font-weight: 700;
+            &.active-side-menu-option {
+              background-color: transparent;
+              color: $green;
+            }
+          }
+          &.sub-option {
+            background-color: $green;
+            border-bottom: 1px solid $white;
+          }
+        }
+      }
+    }
+  }
+}
+/* End */

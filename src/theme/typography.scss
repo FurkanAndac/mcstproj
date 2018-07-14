@@ -1,0 +1,42 @@
+/**
+ * Typography SCSS
+ */
+
+.page-title {
+  display: inline-block;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.title-lg {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 42px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Text color */
+.text-white {
+  color: $black;
+  font-weight: 700;
+}
+.text-dark {
+  color: #4B5C66;
+}
+.text-green {
+  color: $green;
+}
+.profile-info {
+  img {
+    height: 100px;
+    width: 100px;
+    border: 2px solid $white;
+    @include border-radius(100%);
+  }
+  a {
+    text-decoration: none;
+  }
+}

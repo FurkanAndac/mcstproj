@@ -1,0 +1,122 @@
+/**
+ * @file
+ * SCSS file for Mixins.
+ *
+ * All mixins used in SCSS are defined in this file.
+ * - For prefix properties 'http://shouldiprefix.com/'
+ */
+
+
+@mixin calc($property, $expression) {
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}:    -moz-calc(#{$expression});
+  #{$property}:         calc(#{$expression});
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin box-shadow($value) {
+  -webkit-box-shadow: $value;
+     -moz-box-shadow: $value;
+      -ms-box-shadow: $value;
+          box-shadow: $value;
+}
+@mixin appearance($value) {
+  -webkit-appearance: $value;
+     -moz-appearance: $value;
+      -ms-appearance: $value;
+          appearance: $value;
+}
+@mixin transform($value) {
+  -webkit-transform: $value;
+     -moz-transform: $value;
+      -ms-transform: $value;
+          transform: $value;
+}
+@mixin transition($value) {
+  -webkit-transition: $value;
+     -moz-transition: $value;
+      -ms-transition: $value;
+          transition: $value;
+}
+
+/* Flex */
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin inline-flex {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+@mixin flex-wrap($value) {
+  -webkit-flex-wrap: $value;
+     -moz-flex-wrap: $value;
+      -ms-flex-wrap: $value;
+          flex-wrap: $value;
+}
+
+@mixin align-items($value) {
+  -webkit-align-items: $value;
+     -moz-align-items: $value;
+      -ms-align-items: $value;
+          align-items: $value;
+}
+@mixin align-self($value) {
+  -webkit-align-self: $value;
+     -moz-align-self: $value;
+      -ms-align-self: $value;
+          align-self: $value;
+}
+@mixin justify-content($value) {
+  -webkit-justify-content: $value;
+     -moz-justify-content: $value;
+      -ms-justify-content: $value;
+          justify-content: $value;
+}
+
+/* font Color */
+@mixin font-color-set-yellow {
+  * { color: $yellow; }
+  a {
+    &:hover { color: $yellow; }
+  }
+}
+
+@mixin font-color-set-brown {
+  *:not(.btn):not(input):not(textarea):not(select):not(.form-control) { color: $brown; }
+  a:not(.btn) {
+    &:hover { color: $brown; }
+  }
+}
+
+
+/**
+ * Gradient 
+ * 
+ * background-vertical = Top to Bottom
+ * background-horizontal = Left to Right
+ * background-diagonal-tl-br = Top-Left to Bottom-Right
+ * background-diagonal-bl-tr = Bottom-Left to Top-Right
+ */
+
+
+@mixin background-vertical($top, $bottom) {
+  background: $top;
+  background: -webkit-linear-gradient(top, $top 0%, $bottom 100%);
+  background:    -moz-linear-gradient(top, $top 0%, $bottom 100%);
+  background:         linear-gradient(to bottom, $top 0%, $bottom 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$top', endColorstr='$bottom',GradientType=0);
+}
+
+
+

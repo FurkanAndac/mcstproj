@@ -1,0 +1,86 @@
+/*
+ * Form SCSS
+ */
+
+ion-input {
+  .text-input {
+    margin: 11px 8px;
+  }
+}
+
+.field-item {
+  &.item {
+    @include border-radius(3px);
+  }
+  &.item-md {
+    height: 40px;
+    border: 1px solid rgba($black, .8);
+    @include border-radius(4px);
+  }
+  ion-icon.icon {
+    color: #939393;
+  }
+  .input {
+    display: inline-block;
+    @include calc('width', '100% - 20px');
+  }
+}
+.checkbox-wrap {
+  .label {
+    display: inline-block;
+    width: auto;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+  .checkbox {
+    vertical-align: middle;
+    .checkbox-icon {
+      height: 18px;
+      width: 18px;
+      border: none;
+      background-color: $black;
+      @include border-radius(0);
+    }
+    .checkbox-checked {
+      background-color: $black;
+      .checkbox-inner {
+        top: 1px;
+        left: 5px;
+        width: 7px;
+        height: 12px;
+        border-color: $white;
+      }
+    }
+  }
+  /*.item-cover {
+    background-color: $black;
+  }*/
+}
+
+/* Button Design */
+.btn-black {
+  height: 45px;
+  padding: 0 20px;
+  background-color: $black;
+  color: $white;
+  &.button {
+    display: inline-block;
+    height: 45px;
+    padding: 0 20px;
+    background-color: $black;
+    color: $white;
+    font-size: 18px;
+    line-height: 45px;
+    &:hover,
+    &:hover:active,
+    &:active,
+    &:focus,
+    &:visited,
+    &:hover:not(.disable-hover) {
+      background-color: $green;
+    }
+  }
+}
+/* End */

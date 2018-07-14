@@ -1,6 +1,6 @@
 {
-  "name": "myApp",
-  "app_id": "",
+  "name": "ionic3_firebasev5.0",
+  "app_id": "ff50dff9",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

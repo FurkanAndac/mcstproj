@@ -1,0 +1,37 @@
+
+
+<ion-content class="bg-img">
+  <div class="main-content">
+    <div padding text-center class="container-logo" margin-bottom >
+      <img src="assets/imgs/logo.png">
+    </div>
+    <div padding text-center class="form-bottom-text">
+      <h3> Reset Password</h3>
+      <label>Enter the email address associated with your account,and review your email.</label>
+    </div>
+    <div text-center class="socialLogin" padding></div>
+      <div padding style="width: 100%;">
+      <form [formGroup]="authForm" (ngSubmit)="forgetPassword(forgetData.email)">
+
+        <div class="errormsg">
+          <div *ngIf="email.errors && email.touched"><p>Email is required.</p></div>
+        </div>
+
+        <ion-list>
+          <ion-item >
+            <ion-label><ion-icon ios="ios-mail" md="md-mail"></ion-icon></ion-label>
+            <ion-input [(ngModel)]="forgetData.email" [formControl]="email" id="email" type="email" required placeholder="Email *"></ion-input>
+          </ion-item>
+        </ion-list>
+        <button type="submit" ion-button full color="dark" [disabled]="!authForm.valid">Send</button>
+      </form>
+
+      <div padding text-center class="form-bottom-text">
+        <label>
+          <a href="javascript:void(0);" (click)="moveToLogin()">Back to Login</a>
+        </label>
+      </div>
+
+    </div>
+  </div>
+</ion-content>
