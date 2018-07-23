@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      <!-- {{ viewDate | calendarDate:('dayViewTitle') }} -->
+      {{ viewDate | calendarDate:('dayViewTitle') }}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -17,7 +17,7 @@
           </button>
         </ion-col>
         <ion-col col-6 no-padding>
-          <button ion-button full clear mwlCalendarToday [(viewDate)]="viewDate">Today</button>
+          <button ion-button full clear mwlCalendarToday [(viewDate)]="viewDate">Vandaag</button>
         </ion-col>
         <ion-col col-3 no-padding>
           <button ion-button full clear icon-only mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
@@ -31,10 +31,10 @@
   <iq-calendar-week-hours-view
     [viewDate]="viewDate"
     [events]="events"
-    [hourSegments]="2"
+    [hourSegments]="1"
     [dayStartHour]="6"
     [dayEndHour]="20"
-    (eventClicked)="handleEvent($event.event)"
+    (eventClicked)="handleEvent($event)"
     (hourSegmentClicked)="hourSegmentClicked($event)"
     (eventTimesChanged)="eventTimesChanged($event)"
     [weekStartsOn]="1"

@@ -16,6 +16,10 @@ import {
   CalendarEvent,
   CalendarEventTimesChangedEvent
 } from 'angular-calendar';
+import { Title } from '@angular/platform-browser';
+import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 
 @Component({
   selector: 'page-home',
@@ -28,6 +32,8 @@ export class HomePage {
   locale: string = 'nl';
   isDragging = false;
   refresh: Subject<any> = new Subject();
+  todos = [0];
+  
 
   events: CalendarEvent[] = [
     {
@@ -62,22 +68,47 @@ export class HomePage {
     }
   ];
 
-  constructor(public navCtrl: NavController, private alertCtrl: AlertController) { }
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController, public af: AngularFireAuth) { }
 
   handleEvent(event: CalendarEvent): void {
+    console.log("testt");
     let alert = this.alertCtrl.create({
-      title: event.title,
-      message: event.start + ' to ' + event.end,
-      buttons: ['OK']
+      inputs: [
+        {
+          name: 'title',
+          placeholder: 'Title'
+        },
+        {
+          type: 'number',
+          name: 'duur',
+          placeholder: 'Duur werk'
+        }
+      ],
+      title: "Plan taak",
+      // message: event.start + ' to ' + event.end,
+      buttons: [{
+        text: "Cancel",
+
+      },
+      {
+        text: "Save",
+        handler: (inputData) => {
+          // let navTransition = alert.dismiss();
+          this.todos.push(inputData.duur);
+          console.log(this.todos + "eventtt");
+        }
+      }]
     });
+    console.log("test1");
     alert.present();
   }
+
 
   eventTimesChanged({event, newStart, newEnd} : CalendarEventTimesChangedEvent): void {
     if (this.isDragging) {
       return;
     }
-    this.isDragging = true;
+    this.isDragging = false;
 
     event.start = newStart;
     event.end = newEnd;
@@ -88,11 +119,16 @@ export class HomePage {
     },1000);
   }
 
-  hourSegmentClicked(event): void {
-    let newEvent: CalendarEvent = {
+
+  hourSegmentClicked(event): void{
+    
+
+    console.log("test1")
+    console.log(this.todos[this.todos.length - 1] + "event1")
+    let firstevent: CalendarEvent = {
       start: event.date,
-      end: addHours(event.date, 1),
-      title: 'TEST EVENT',
+      end: addHours(event.date, this.todos[this.todos.length - 1]),
+      title: "l0l0l",
       cssClass: 'custom-event',
       color: {
         primary: '#488aff',
@@ -102,11 +138,41 @@ export class HomePage {
         beforeStart: true,
         afterEnd: true
       },
-      draggable: true
+      draggable: false
     }
-
-    this.events.push(newEvent);
+    this.events.push(firstevent);
+    console.log(this.events + 'checkkk');
     this.refresh.next();
-  }
+    console.log("test123");
+    this.handleEvent(event);
+    console.log("test1234");
+    }
+  
+
+  
+
+  // hourSegmentClicked(event): void {
+  //   this.handleEvent(event);
+
+  //   let newEvent: CalendarEvent = {
+  //     start: event.date,
+  //     end: addHours(event.date, 1),
+  //     title: 'TEST EVENT',
+  //     cssClass: 'custom-event',
+  //     color: {
+  //       primary: '#488aff',
+  //       secondary: '#bbd0f5'
+  //     },
+  //     resizable: {
+  //       beforeStart: true,
+  //       afterEnd: true
+  //     },
+  //     draggable: false
+  //   }
+
+
+  //   this.events.push(newEvent);
+  //   this.refresh.next();
+  // }
 
 }

@@ -3,12 +3,6 @@
     <name>ionicFirebase</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <universal-links>
-        <host name="https://zv3t4.app.goo.gl" scheme="https" />
-        <host name="fir-auth-bdcc0.firebaseapp.com" scheme="https">
-            <path url="/__/auth/callback" />
-        </host>
-    </universal-links>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -96,5 +90,5 @@
     <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
     <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
-    <engine name="android" spec="7.1.0" />
+    <engine name="android" spec="~7.0.0" />
 </widget>

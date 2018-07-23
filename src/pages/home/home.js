@@ -21,6 +21,7 @@ var HomePage = /** @class */ (function () {
         this.locale = 'nl';
         this.isDragging = false;
         this.refresh = new Subject();
+        this.todos = [0];
         this.events = [
             {
                 start: addHours(startOfDay(new Date()), 7),
@@ -55,11 +56,35 @@ var HomePage = /** @class */ (function () {
         ];
     }
     HomePage.prototype.handleEvent = function (event) {
+        var _this = this;
+        console.log("testt");
         var alert = this.alertCtrl.create({
-            title: event.title,
-            message: event.start + ' to ' + event.end,
-            buttons: ['OK']
+            inputs: [
+                {
+                    name: 'title',
+                    placeholder: 'Title'
+                },
+                {
+                    type: 'number',
+                    name: 'duur',
+                    placeholder: 'Duur werk'
+                }
+            ],
+            title: "Plan taak",
+            // message: event.start + ' to ' + event.end,
+            buttons: [{
+                    text: "Cancel",
+                },
+                {
+                    text: "Save",
+                    handler: function (inputData) {
+                        // let navTransition = alert.dismiss();
+                        _this.todos.push(inputData.duur);
+                        console.log(_this.todos + "eventtt");
+                    }
+                }]
         });
+        console.log("test1");
         alert.present();
     };
     HomePage.prototype.eventTimesChanged = function (_a) {
@@ -68,7 +93,7 @@ var HomePage = /** @class */ (function () {
         if (this.isDragging) {
             return;
         }
-        this.isDragging = true;
+        this.isDragging = false;
         event.start = newStart;
         event.end = newEnd;
         this.refresh.next();
@@ -77,10 +102,12 @@ var HomePage = /** @class */ (function () {
         }, 1000);
     };
     HomePage.prototype.hourSegmentClicked = function (event) {
-        var newEvent = {
+        console.log("test1");
+        console.log(this.todos[this.todos.length - 1] + "event1");
+        var firstevent = {
             start: event.date,
-            end: addHours(event.date, 1),
-            title: 'TEST EVENT',
+            end: addHours(event.date, this.todos[this.todos.length - 1]),
+            title: "l0l0l",
             cssClass: 'custom-event',
             color: {
                 primary: '#488aff',
@@ -90,10 +117,14 @@ var HomePage = /** @class */ (function () {
                 beforeStart: true,
                 afterEnd: true
             },
-            draggable: true
+            draggable: false
         };
-        this.events.push(newEvent);
+        this.events.push(firstevent);
+        console.log(this.events + 'checkkk');
         this.refresh.next();
+        console.log("test123");
+        this.handleEvent(event);
+        console.log("test1234");
     };
     HomePage = __decorate([
         Component({
